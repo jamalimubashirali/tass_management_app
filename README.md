@@ -1,8 +1,3 @@
-Here is the **complete `README.md` file in full Markdown format**, with **everything written directly in Markdown** — no placeholder comments or incomplete sections. You can copy this directly into your project and it will be fully functional.
-
----
-
-```markdown
 # Task Management Application
 
 A Spring Boot-based task management application with secure REST APIs.
@@ -31,11 +26,10 @@ Before you begin, ensure you have the following installed:
 Open a terminal and run the following command:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/jamalimubashirali/task_management_app
 cd task_management_app
 ```
 
-> Replace `[repository-url]` with the actual URL of your Git repository.
 
 ### Configure the Database
 
@@ -54,10 +48,6 @@ spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-
-# JWT Configuration
-jwt.secret.key=mySecretKey
-jwt.expiration.time=86400000
 ```
 
 > Replace `your_username` and `your_password` with your PostgreSQL credentials.
@@ -131,7 +121,7 @@ This application uses **JWT tokens** for stateless authentication. Users must lo
 
 ### How It Works
 
-1. A user logs in via `/api/auth/login`.
+1. A user logs in via `/api/v1/login`.
 2. The server returns a JWT token.
 3. For all subsequent requests, include the token like this:
 
@@ -147,25 +137,25 @@ All endpoints return JSON responses.
 
 | Method | Endpoint             | Description                |
 |--------|----------------------|----------------------------|
-| POST   | `/api/auth/register` | Register a new user        |
-| POST   | `/api/auth/login`    | Log in and get JWT token   |
+| POST   | `/api/v1/register` | Register a new user        |
+| POST   | `/api/v1/login`    | Log in and get JWT token   |
 
 ### Task Management Endpoints (Protected)
 
 | Method | Endpoint            | Description                          |
 |--------|---------------------|--------------------------------------|
-| GET    | `/api/tasks`        | Get list of all tasks                |
-| POST   | `/api/tasks`        | Create a new task                    |
-| GET    | `/api/tasks/{id}`   | Get task by ID                       |
-| PUT    | `/api/tasks/{id}`   | Update an existing task              |
-| DELETE | `/api/tasks/{id}`   | Delete a task                        |
+| GET    | `/api/v1/tasks`        | Get list of all tasks                |
+| POST   | `/api/v1/create-task`        | Create a new task                    |
+| GET    | `/api/v1/tasks/{task_id}`   | Get task by ID                       |
+| PATCH    | `/api/v1/tasks/update_task/{task_id}`   | Update an existing task              |
+| DELETE | `/api/v1/tasks/delete-task/{task_id}`   | Delete a task                        |
 
 ## Example Requests
 
 ### Login Request
 
 ```http
-POST /api/auth/login HTTP/1.1
+POST /api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
@@ -185,7 +175,7 @@ Content-Type: application/json
 ### Accessing Protected Resource
 
 ```http
-GET /api/tasks HTTP/1.1
+GET /api/v1/tasks HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx
 ```
 
@@ -247,7 +237,7 @@ For deployment on servers or cloud platforms, consider:
 
 ## Contributing
 
-We welcome contributions! Here's how to contribute:
+Here's how to contribute:
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/new-feature`)
@@ -255,24 +245,4 @@ We welcome contributions! Here's how to contribute:
 4. Push to the branch (`git push origin feature/new-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the **MIT License**.  
-See [LICENSE](https://github.com/yourusername/task_management_app/blob/main/LICENSE) for more details.
-
-## Contact
-
-For questions or feedback:
-
-- Name: Your Name
-- Email: [your-email@example.com](mailto:your-email@example.com)
-
-🔗 **Project Link:** [GitHub Repository](https://github.com/yourusername/task_management_app)
-
-## Acknowledgments
-
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [PostgreSQL](https://www.postgresql.org/)
-- [JWT.io](https://jwt.io/)
-```
 
